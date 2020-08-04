@@ -130,6 +130,29 @@ deckset_reset() {
     rm -f "$HOME/.*.padl" 2>/dev/null
 }
 
+delete_logs() {
+   logs=(
+      '/var/log/wifi.log'                                # WiFi log
+      '/var/log/ppp.log'                                 # VPN, PPPoE and PPP (modem) log
+      '/var/log/cups/error_log'                          # Printer error log
+      '/var/log/cups/access_log'                         # Printer access log
+      '/var/log/asl'                                     # Kernel log
+      '/var/log/install.log'                             # Installer log
+      '/var/log/fsck_hfs.log'                            # Filesystem repair log
+      '/var/log/DiagnosticMessages'                      # Diagnostic Messages
+      '/var/log/appfirewall.log'                         # Application firewall log
+      '/var/log/asl'                                     # Apple System Log (ASL) Messages
+      "$HOME/Library/logs/fsck_hfs.log"                  # User filesystem repair log
+      "$HOME/Library/Logs/DiscRecording.log"             # Disc recording log
+   )
+
+   for i in ${logs[*]}
+   do
+      [[ -d $i ]] && sudo rm -rf $i 2>/dev/null
+      [[ -f $i ]] && sudo rm -f $i  2>/dev/null
+   done
+}
+
 fi
 
 #############################################################
