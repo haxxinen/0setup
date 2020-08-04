@@ -18,6 +18,11 @@ bindkey '^ ' autosuggest-accept
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.zsh/aliasrc" ] && source "$HOME/.zsh/aliasrc"
 
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$HOME/.zsh_history
+setopt appendhistory
+
 ### macOS ###
 if [[ `uname -a | awk '{print $1}'` == 'Darwin' ]]; then
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
