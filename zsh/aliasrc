@@ -117,6 +117,18 @@ alias vera_dismount="/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text
 
 alias vmrun="$HOME/.vmrun/.venv/bin/python3 $HOME/.vmrun/vmrun.py"
 
+wifi_pro_reset() {
+    f="$HOME/Library/Application Support/WiFi Explorer Pro/paddata.padl"; rm -f "$f" 2>/dev/null
+    f="$HOME/Library/Application Support/WiFi Explorer Pro/queue.pak"; rm -f "$f" 2>/dev/null
+    rm -f "$HOME/.*.padl" 2>/dev/null
+}
+
+deckset_reset() {
+    f="$HOME/Library/Application Support/Deckset/paddata.padl"; rm -f "$f" 2>/dev/null
+    f="$HOME/Library/Application Support/Deckset/queue.pak"; rm -f "$f" 2>/dev/null
+    rm -f "$HOME/.*.padl" 2>/dev/null
+}
+
 fi
 
 #############################################################
