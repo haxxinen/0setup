@@ -38,7 +38,8 @@ Init:
 
 ```
 # cp zsh/zshrc $HOME/.zshrc
-# 
+# cp zsh/aliasrc $HOME/.zsh/aliasrc
+# cp zsh/p10k.zsh $HOME/.p10k.zsh
 ```
 
 ZSH Projects:
