@@ -19,12 +19,11 @@
 - Homebrew
 - Signal
 - Office 365
-- Chrome (with incognito patch) 
-- WiFi Explorer Pro (with patch)
-- Deckset (with patch)
-- vmrun (clone & install locally)
-- netinfo (clone & install locally)
-- `.bash_profile` (aliases, colors and other goodies)
+- Chrome
+- WiFi Explorer Pro
+- Deckset
+- vmrun
+- netinfo
 - Chrome
   * AddBlock plus
   * KB SSL Enforcer
