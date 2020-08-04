@@ -2,7 +2,7 @@
 
 - setup user account with username/password 
 - boot into Recovery Mode (command + R) 
-  * resize flsh storage (main OS partition + empty volume)
+  * resize flash storage (main OS partition + empty volume)
   * set firmware password
 - enable full disk encryption on MacOS partition (FileVault)
 - create VeraCrypt volume non-OS partition
