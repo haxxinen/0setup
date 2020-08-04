@@ -1,0 +1,137 @@
+#############################################################
+
+### BASIC ###
+
+#
+# # ex - archive extractor
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.tar.xz)    tar xJf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+export EDITOR=nano
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+alias ls='ls'
+alias ll='ls -l'
+alias ll='ls -laSFr'
+# ls, the common ones I use a lot shortened for rapid fire usage
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ll='ls -l'      #long list
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+
+alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
+
+alias grep='grep --color'
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+
+alias t='tail -f'
+
+# Command line head / tail shortcuts
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L="| less"
+alias -g M="| most"
+alias -g LL="2>&1 | less"
+alias -g CA="2>&1 | cat -A"
+alias -g NE="2> /dev/null"
+alias -g NUL="> /dev/null 2>&1"
+alias -g P="2>&1| pygmentize -l pytb"
+
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
+alias h='history'
+alias hgrep="fc -El 0 | grep"
+alias help='man'
+alias p='ps -f'
+alias sortnr='sort -n -r'
+alias unexport='unset'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+gitpush() {
+    git add .
+    git commit -m "$*"
+    git push
+}
+alias gp=gitpush
+
+alias passgen="LC_CTYPE=C tr -dc 'A-Za-z0-9!@#$%^&*()_+=0-9~' < /dev/urandom | head -c 8;echo"
+alias netinfo="$HOME/.netinfo/.venv/bin/python3 $HOME/.netinfo/netinfo.py"
+
+#############################################################
+
+### macOS ###
+
+if [[ `uname -a | awk '{print $1}'` == 'Darwin' ]]; then
+
+alias flush_dns_cache="sudo killall -HUP mDNSResponder"
+alias rm_ds_store="find . -name .DS_Store | xargs rm"
+
+# ADB
+export PATH=$PATH:/Users/*/Library/Android/sdk/platform-tools/
+
+# Java
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/*/Contents/Home/'
+export PATH=$PATH:`echo $JAVA_HOME/bin`
+
+# Burp Proxy
+alias proxy_on="sudo networksetup -setsecurewebproxy 'Wi-Fi' 127.0.0.1 8080 && sudo networksetup -setwebproxy 'Wi-Fi' 127.0.0.1 8080"
+alias proxy_off="sudo networksetup -setsecurewebproxystate 'Wi-Fi' off && sudo networksetup -setwebproxystate 'Wi-Fi' off"
+
+### veracrypt
+alias vera_mount="/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text --mount" # /dev/disk3
+alias vera_dismount="/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text --dismount" # /dev/disk3
+
+alias vmrun="$HOME/.vmrun/.venv/bin/python3 $HOME/.vmrun/vmrun.py"
+
+fi
+
+#############################################################
+
+### LINUX ###
+
+if [[ `uname -a | awk '{print $1}'` == 'Linux' ]]; then
+
+alias startup_daemons="for i in `find /etc/rc*.d -name S*`; do basename $i | sed -r 's/^S[0-9]+//'; done | sort -u"
+
+#### DOCKER
+alias docker_rm_all="docker rmi -f \$(docker images | awk '{print \$3}' | xargs echo) 2>/dev/null"
+alias docker_rm_img="docker rmi -f \$(docker images | grep none | awk '{print \$3}' | xargs echo) 2>/dev/null"
+alias docker_rm_ps="docker rm -f \$(docker ps -a | awk '{print \$1}' | grep -v 'CONTAINER' | xargs echo) 2>/dev/null"
+
+fi
+
+#############################################################
