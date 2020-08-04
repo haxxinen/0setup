@@ -125,7 +125,7 @@ fi
 
 if [[ `uname -a | awk '{print $1}'` == 'Linux' ]]; then
 
-alias startup_daemons="for i in `find /etc/rc*.d -name S*`; do basename $i | sed -r 's/^S[0-9]+//'; done | sort -u"
+alias startup_daemons="for i in `find /etc/rc*.d -name 'S*'`; do basename $i | sed -r 's/^S[0-9]+//'; done | sort -u"
 
 #### DOCKER
 alias docker_rm_all="docker rmi -f \$(docker images | awk '{print \$3}' | xargs echo) 2>/dev/null"
