@@ -45,8 +45,9 @@
 - KisMac2 
 - LittleSnitch 
 
-## Presentation
-- deckset
+## Productivity
+- Deckset
+- XMind
 
 ## Dev
 - AppCode / IntelliJ IDEA / WebStorm
