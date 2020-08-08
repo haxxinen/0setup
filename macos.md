@@ -5,6 +5,8 @@
   * resize flash storage (main OS partition + empty volume)
   * set firmware password
 - enable full disk encryption on MacOS partition (FileVault)
+- Network -> Wi-Fi -> Advanced (check all from "Require admin authorization")
+- Change DNS for all interfaces to: `1.1.1.1` and `8.8.8.8`
 - create VeraCrypt volume non-OS partition
 - enable firefwall (Firewall Options -> Block all incomming connections)
 - change computer name from Sharing settings
