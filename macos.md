@@ -21,7 +21,6 @@
 - Homebrew
 - Signal
 - Office 365
-- Chrome
 - WiFi Explorer Pro
 - Deckset
 - vmrun
