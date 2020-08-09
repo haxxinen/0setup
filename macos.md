@@ -15,6 +15,7 @@
 - hosts update script
 - vmrun
 - netinfo
+- Firefox
 - Chrome
   * AddBlock plus
   * KB SSL Enforcer
