@@ -13,16 +13,6 @@
 - ZSH setup
 - VMWare Fusion
 - hosts update script
-- Tunnelblick
-- Spectacle
-- Sublime Text
-- iTerm2
-- AppCleaner
-- Homebrew
-- Signal
-- Office 365
-- WiFi Explorer Pro
-- Deckset
 - vmrun
 - netinfo
 - Chrome
@@ -40,17 +30,21 @@
 - fsmonitor
 - Little Flocker aka XFence
 
-## Networking Monitoring
+## Networking Tools
 - Wireshark 
 - WiFi Explorer Pro 
 - KisMac2 
-- LittleSnitch 
+- LittleSnitch
+- Tunnelblick
 
 ## Productivity
 - Deckset
 - XMind
+- Signal
+- Office 365
 
 ## Dev
+- Homebrew
 - AppCode / IntelliJ IDEA / WebStorm
 - Sublime Text + config
 - Xcode + SDK 
@@ -64,6 +58,7 @@
 - The Unarchiver 
 - iTerm2 
 - srm
+- Pock
 
 ## VMs
 - VMWare Fusion
