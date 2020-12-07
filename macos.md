@@ -43,7 +43,7 @@
 - XMind
 - Signal
 - Office 365
-- Folx
+- Quiver
 
 ## Dev
 - Homebrew
@@ -61,6 +61,8 @@
 - iTerm2 
 - srm
 - Pock
+- Folx
+- balenaEtcher
 
 ## VMs
 - VMWare Fusion
