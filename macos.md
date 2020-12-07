@@ -43,6 +43,7 @@
 - XMind
 - Signal
 - Office 365
+- Folx
 
 ## Dev
 - Homebrew
