@@ -11,7 +11,6 @@
 - enable firefwall (Firewall Options -> Block all incomming connections)
 - change computer name from Sharing settings
 - ZSH setup
-- VMWare Fusion
 - hosts update script
 - vmrun
 - netinfo
