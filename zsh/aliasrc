@@ -88,7 +88,7 @@ gitpush() {
 }
 alias gp=gitpush
 
-alias passgen="LC_CTYPE=C tr -dc 'A-Za-z0-9!@#$%^&*()_+=0-9~' < /dev/urandom | head -c 8;echo"
+alias passgen="cat /dev/urandom | head -c 8 | base64"
 alias netinfo="$HOME/.netinfo/.venv/bin/python3 $HOME/.netinfo/netinfo.py"
 
 #############################################################
