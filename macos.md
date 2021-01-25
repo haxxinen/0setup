@@ -36,6 +36,14 @@
 - KisMac2 
 - LittleSnitch
 - Tunnelblick
+- OpenVPN Fix for MacOS 11+
+```
+# sudo /usr/local/Cellar/openvpn/2.5.0/sbin/openvpn --config VPN.conf
+# sudo pfctl -a com.apple.internet-sharing/shared_v4 -s nat 2>/dev/null > /tmp/newrules.conf
+# echo "nat on utun2 inet from 192.168.135.0/24 to any -> (utun2) extfilter ei" >> /tmp/newrules.conf
+# sudo pfctl -a com.apple.internet-sharing/shared_v4 -N -f /tmp/newrules.conf 2>/dev/null
+```
+Here 192.168.13.0/24 IP range for VMs
 
 ## Productivity
 - Deckset
