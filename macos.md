@@ -49,9 +49,22 @@
 - AppCode / IntelliJ IDEA / WebStorm
 - Sublime Text + config
 - Xcode + SDK 
-- Java SDK
 - Android Studio + SDK 
 - Genymotion
+- Java (OpenJDK)
+```
+$ brew install jenv java
+# make sure jenv ~/.zsh/aliasrc is set up
+$ jenv add /usr/local/Cellar/openjdk/*
+$ jenv versions # system is selected by default
+$ jenv global `jenv versions | tail -n1` # set it to Homebrew java
+$ java --version
+```
+- Jadx
+```
+$ brew install jadx
+$ jadx /tmp/app.apk >/dev/null 2>/dev/null
+```
 
 ## Utils 
 - AppCleaner
