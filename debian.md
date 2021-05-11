@@ -40,12 +40,13 @@ $ sudo su
 - disable extra services (proceed with caution)
 ```
 $ sudo netstat -tulnpe
-$ sudo systemctl disable systemd-resolved NetworkManager cups avahi-daemon
-$ sudo systemctl stop systemd-resolved NetworkManager cups avahi-daemon
+$ sudo systemctl disable systemd-resolved cups avahi-daemon
+$ sudo systemctl stop systemd-resolved cups avahi-daemon
 ```
 
 - fix DNS
 ```
+$ sudo rm /etc/resolv.conf
 $ cat /etc/resolv.conf
 nameserver 1.1.1.1
 $ nslookup google.com
