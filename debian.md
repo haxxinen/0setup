@@ -4,7 +4,7 @@ NOTE: Execute only the steps required for your setup. This is not a de facto app
 
 - update/upgrade + kernel headers and some basic packages
 ```
-$ sudo apt-get update && sudo apt-get upgrade -yqq && sudo apt-get dist-upgrade
+$ sudo apt-get update && sudo apt-get upgrade -yqq && sudo apt-get dist-upgrade -yqq
 $ sudo apt-get install linux-headers-`uname -r` linux-image-`uname -r` -yqq
 $ sudo apt-get install binutils usbutils apt-transport-https ca-certificates curl httpie -yqq
 ```
