@@ -67,6 +67,8 @@ net.ipv6.conf.lo.disable_ipv6 = 1
 - dynamic vs. static IP: `/etc/network/interfaces`
 
 ```
+source /etc/network/interfaces.d/*
+
 # The loopback network interface
 auto lo
 iface lo inet loopback
@@ -89,10 +91,13 @@ iface enp0s31f6 inet static
    dns-nameservers 8.8.8.8
 ```
 
-- bye bye `systemd-networkd`, hello `sudo apt install ifupdown -yqq`
+- bye bye `systemd-networkd` (because ... systemd)
 ```
+$ sudo apt install ifupdown -yqq
+$ sudo apt purge nplan netplan.io -yqq
 $ sudo systemctl disable systemd-networkd systemd-networkd.socket networkd-dispatcher systemd-networkd-wait-online
-$ sudo systemctl stop systemd-networkd systemd-networkd.socket networkd-dispatcher systemd-networkd-wait-online
+$ sudo systemctl mask systemd-networkd systemd-networkd.socket networkd-dispatcher systemd-networkd-wait-online
+$ sudo systemctl stop systemd-networkd systemd-networkd.socket networkd-dispatcher systemd-networkd-wait-online && sudo reboot
 ```
 
 - change `/etc/motd` login text
@@ -104,8 +109,9 @@ $ touch ~/.hushlogin # or disable it
 
 - install `docker`
 ```
-https://docs.docker.com/install/linux/docker-ce/debian/
-https://docs.docker.com/install/linux/linux-postinstall/
+https://docs.docker.com/engine/install/debian/
+https://docs.docker.com/engine/install/ubuntu/
+https://docs.docker.com/engine/install/linux-postinstall/
 ```
 
 - customize `~/.bash_profile` for `bash`
