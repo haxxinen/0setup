@@ -59,23 +59,34 @@ net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
 ```
 
-- dynamic IP
+- get networking interface name
 ```
-# cat /etc/network/interfaces
-allow-hotplug ens33
-iface ens33 inet dhcp
-# dhclient ens33
+# /sbin/ip -4 -o a | cut -d ' ' -f 2,7
 ```
 
-- static IP in `/etc/network/interfaces`
+- dynamic vs. static IP: `/etc/network/interfaces`
+
 ```
-auto ens33
-iface ens33 inet static 
-  address 172.16.201.160
-  netmask 255.255.255.0
-  gateway 172.16.201.2
-  dns-nameservers 1.1.1.1
-  dns-nameservers 8.8.8.8
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+
+## by DHCP: dhclient enp0s31f6
+#auto enp0s31f6
+#allow-hotplug enp0s31f6
+#iface enp0s31f6 inet dhcp
+
+
+## manual
+auto enp0s31f6
+iface enp0s31f6 inet static
+   address 192.168.66.10
+   netmask 255.255.255.0
+   gateway 192.168.66.1
+   dns-nameservers 1.1.1.1
+   dns-nameservers 8.8.8.8
 ```
 
 - change `/etc/motd` login text
