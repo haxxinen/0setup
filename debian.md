@@ -52,7 +52,7 @@ nameserver 1.1.1.1
 $ nslookup google.com
 ```
 
-- disable IPv6 - `/etc/sysctl.conf` && `# sudo sysctl -p`
+- disable IPv6 - `/etc/sysctl.conf` && `# sudo sysctl -p` (!THIS MIGHT BREAK VPN!)
 ```
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
@@ -87,6 +87,12 @@ iface enp0s31f6 inet static
    gateway 192.168.66.1
    dns-nameservers 1.1.1.1
    dns-nameservers 8.8.8.8
+```
+
+- bye bye `systemd-networkd`, hello `sudo apt install ifupdown -yqq`
+```
+$ sudo systemctl disable systemd-networkd systemd-networkd.socket networkd-dispatcher systemd-networkd-wait-online
+$ sudo systemctl stop systemd-networkd systemd-networkd.socket networkd-dispatcher systemd-networkd-wait-online
 ```
 
 - change `/etc/motd` login text
